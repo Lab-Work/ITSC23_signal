@@ -39,6 +39,7 @@ for xml_file in xml_files:
         waiting_time = float(tripinfo.attrib['timeLoss'])
         depart_delay = float(tripinfo.attrib['departDelay'])
         trip_time = float(tripinfo.attrib['duration'])
+        if trip_time < 1: trip_time += 1    # avoid infinity
         norm_timeloss = (waiting_time + depart_delay) / trip_time
         trip_count += 1
 
